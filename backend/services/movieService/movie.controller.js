@@ -68,4 +68,13 @@ const deleteMovie = async (req, res) => {
   }
 };
 
-export { createMovie, getAllMovies, getMovieById, updateMovie, deleteMovie };  
+// Get featured movies
+const getFeaturedMovies = async (req, res) => {
+  try {
+    const featuredMovies = await Movie.find({ isFeatured: true }).limit(4   );
+    res.json(featuredMovies);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+export { createMovie, getAllMovies, getMovieById, updateMovie, deleteMovie, getFeaturedMovies };  

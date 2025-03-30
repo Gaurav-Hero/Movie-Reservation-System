@@ -9,7 +9,8 @@ const movieSchema = new mongoose.Schema({
   releaseDate: { type: Date, required: true },
   posterUrl: { type: String, required: true },
   rating: { type: Number, default: 0 },
-  isActive: { type: Boolean, default: true }
+  isActive: { type: Boolean, default: true },
+  isFeatured: { type: Boolean, default: false },
 }, { timestamps: true });
 
 const movieModel = mongoose.model("Movie", movieSchema);
