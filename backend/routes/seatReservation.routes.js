@@ -4,18 +4,17 @@ import {
   getUserReservations,
   getShowReservations,
   cancelReservation,
-  getReservationById,
-  updateReservation
+  getReservationById
 } from "../services/seatReservationService/seatReservation.controller.js";
+import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
 // Reservation management routes
-router.post("/", createReservation);
-router.get("/user/:userId", getUserReservations);
+router.post("/", auth, createReservation);
+router.get("/user/:userId", auth, getUserReservations);
 router.get("/show", getShowReservations);
-router.get("/:reservationId", getReservationById);
-router.put("/:reservationId", updateReservation);
-router.put("/:reservationId/cancel", cancelReservation);
+router.get("/:reservationId", auth, getReservationById);
+router.put("/:reservationId/cancel", auth, cancelReservation);
 
 export default router; 

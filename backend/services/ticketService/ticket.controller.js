@@ -4,7 +4,7 @@ import QRCode from "qrcode";
 // Create a new ticket
 const createTicket = async (req, res) => {
   try {
-    const ticketData = req.body;
+    const ticketData = req.body;q
 
     // Check if seat is already booked for the show time
     const existingTicket = await Ticket.findOne({

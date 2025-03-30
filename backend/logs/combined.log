@@ -1,0 +1,10 @@
+{"level":"info","message":"Server running in development mode on port 5000","service":"movie-reservation-api","timestamp":"2025-03-30 10:45:58"}
+{"level":"info","message":"Health check available at http://localhost:5000/health","service":"movie-reservation-api","timestamp":"2025-03-30 10:45:58"}
+{"level":"info","message":"Server running in development mode on port 5000","service":"movie-reservation-api","timestamp":"2025-03-30 10:46:43"}
+{"level":"info","message":"Health check available at http://localhost:5000/health","service":"movie-reservation-api","timestamp":"2025-03-30 10:46:43"}
+{"level":"info","message":"GET /","service":"movie-reservation-api","timestamp":"2025-03-30 10:47:06"}
+{"level":"warn","message":"Route not found: /","service":"movie-reservation-api","timestamp":"2025-03-30 10:47:06"}
+{"level":"info","message":"GET /favicon.ico","service":"movie-reservation-api","timestamp":"2025-03-30 10:47:07"}
+{"level":"warn","message":"Route not found: /favicon.ico","service":"movie-reservation-api","timestamp":"2025-03-30 10:47:07"}
+{"level":"info","message":"GET /","service":"movie-reservation-api","timestamp":"2025-03-30 10:47:12"}
+{"level":"warn","message":"Route not found: /","service":"movie-reservation-api","timestamp":"2025-03-30 10:47:12"}
