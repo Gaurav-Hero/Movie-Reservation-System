@@ -1,5 +1,5 @@
 import {Routes , Route} from 'react-router-dom';
-import { useState } from 'react';
+
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login'
@@ -11,6 +11,7 @@ import ShowManagement from './pages/ShowManagement'
 import RevenueCheck from './pages/RevenueCheck'
 import BookingTracking from './pages/BookingTracking'
 import CreateShow from './pages/CreateShow'
+import CreateTheater from './pages/CreateTheater';
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/tracking" element={<BookingTracking />} />
         
         <Route path="/create-show" element={<CreateShow />} />
+        <Route path='/create-theater' element={<CreateTheater />} />
       </Routes>
     </div>
   )

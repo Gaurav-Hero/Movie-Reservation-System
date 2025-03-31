@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
-import connectionDB from './utils/db.js'
+import adminRoutes from "./routes/admin.routes.js";
+import connectionDB from './utils/db.js';
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 
 // MongoDB Connection
 if(connectionDB()){
