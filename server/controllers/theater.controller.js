@@ -54,7 +54,7 @@ export const getTheaters = async (req, res) => {
     const adminId = req.user._id; // Get admin ID from the authenticated user (from JWT)
     
     // Fetch theaters where userId matches the logged-in admin's ID
-    const theaters = await Theater.find({ userId: adminId });
+    const theaters = await Theater.find({owner:adminId});
 
     res.status(200).json(theaters);
   } catch (error) {

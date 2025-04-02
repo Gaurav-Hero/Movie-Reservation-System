@@ -13,6 +13,7 @@ const TheaterSelection = () => {
         const token = localStorage.getItem("token");
         const response = await axios.get("http://localhost:5000/api/admin/gettheater", {
           headers: { Authorization: `Bearer ${token}` },
+          
         });
         
         setTheaters(response.data);
