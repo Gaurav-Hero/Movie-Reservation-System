@@ -1,0 +1,6 @@
+15 JUNE 2025
+1. forget to use dotenv.config and got process.env.PORT => undefined
+2. type https instead of http and got my api not working ,beacause it dosent support secured connection 
+3. while importing this line of code - import isDatabaseConnected from './src/config/db.config'; - beacause i didnt write full file name with extension db.config.js
+
+
