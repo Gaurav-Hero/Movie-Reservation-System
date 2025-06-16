@@ -4,3 +4,13 @@
 3. while importing this line of code - import isDatabaseConnected from './src/config/db.config'; - beacause i didnt write full file name with extension db.config.js
 
 
+16 june 2025
+1. basically when we not use Content type: application/json in header section then express.json() will not able to parse the req.body 
+beacause express didnt expect req.body a json untill you tell the express this gonna be in json formate
+| With Content-Type          | Without Content-Type        |
+| -------------------------- | --------------------------- |
+| JSON gets parsed ✔️        | JSON gets ignored ❌         |
+| `req.body` is available ✔️ | `req.body` is `undefined` ❌ |
+| Your schema saves ✔️       | Your schema throws error ❌  |
+
+
