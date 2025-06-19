@@ -5,6 +5,7 @@ import authRoute from './src/routes/auth.route.js'
 import movieRoute from './src/routes/movie.route.js'
 import theaterRoute from './src/routes/theater.route.js'
 import showtimeRoute from './src/routes/showtime.route.js'
+import bookingRoute from './src/routes/booking.route.js'
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ app.use('/api/auth', authRoute);
 app.use('/api/movies', movieRoute);
 app.use('/api/theater', theaterRoute);
 app.use('/api/showtime', showtimeRoute);
+app.use("/api/bookings", bookingRoute);
 
 const port = process.env.PORT || 5000
 if(isDatabaseConnected()){
