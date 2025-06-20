@@ -8,15 +8,20 @@ export const verifyToken = (req, res, next) => {
   }
 
   const token = authHeader.split(' ')[1];
+  console.log("Received Token:", token);
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // Attach user to request
+    console.log("JWT Decoded:", decoded);
+
+    req.user = decoded; // { id, role, etc. }
     next();
   } catch (err) {
+    console.error("JWT Error:", err.message);
     res.status(401).json({ error: 'Invalid or expired token' });
   }
 };
+
 
 // Only for admin routes
 export const verifyAdmin = (req, res, next) => {
