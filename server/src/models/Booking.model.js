@@ -22,10 +22,10 @@ const bookingSchema = new mongoose.Schema({
     required: true
   },
   status: {
-    type: String,
-    enum: ["booked", "cancelled"],
-    default: "booked"
-  }
+  type: String,
+  enum: ["pending", "confirmed", "cancelled", "paid"], // ✅ added "paid"
+  default: "pending"
+}
 }, { timestamps: true });
 
 const Booking = mongoose.model("Booking", bookingSchema);
