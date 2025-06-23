@@ -11,6 +11,16 @@ const bookingSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+  movieId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Movie",
+    required: true
+  },
+  theaterId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Theater",
+    required: true
+  },
   seats: [
     {
       seatNumber: String,
@@ -22,11 +32,12 @@ const bookingSchema = new mongoose.Schema({
     required: true
   },
   status: {
-  type: String,
-  enum: ["pending", "confirmed", "cancelled", "paid"], // ✅ added "paid"
-  default: "pending"
-}
+    type: String,
+    enum: ["pending", "confirmed", "cancelled", "paid"],
+    default: "pending"
+  }
 }, { timestamps: true });
+
 
 const Booking = mongoose.model("Booking", bookingSchema);
 export default Booking;
