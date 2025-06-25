@@ -4,6 +4,7 @@ import User from "../models/user.model.js"
 
 export const register = async (req, res) => {
   try {
+    console.log("Register Route Hit !")
     const { name, email, password, role } = req.body;
     const exist = await User.findOne({ email });
     if (exist) return res.status(400).json({ msg: "User already exists" });
@@ -19,6 +20,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
+    console.log("Login Route Hit !")
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ msg: "User not found" });
