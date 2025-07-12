@@ -16,7 +16,7 @@ export default function LoginPage() {
     try {
       const res = await loginUser(form.email, form.password);
       localStorage.setItem("token", res.token); // store JWT
-      navigate("/"); // go to homepage or dashboard
+      navigate("/home"); // go to homepage or dashboard
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
