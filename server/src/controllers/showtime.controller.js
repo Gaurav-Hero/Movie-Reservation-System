@@ -1,4 +1,5 @@
 import Showtime from '../models/showtime.model.js'
+import mongoose from 'mongoose'
 
 export const addShowtime = async (req, res) => {
   try {
@@ -21,15 +22,31 @@ export const getAllShowtime = async (req, res) => {
     }
 };
 
+// GET  /api/showtime/movie/:movieId
 export const getShowtimeById = async (req, res) => {
-    try {
-        const showtime = await Showtime.findById(req.params.id);
-        if (!showtime) return res.status(404).json({ error: 'showtime not found' });
-        res.status(200).json(showtime);
-    } catch (err) {
-        res.status(500).json({ error: 'Error retrieving showtime' });
+  try {
+    const { movieId } = req.params;
+
+    // (optional) quick check for valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400).json({ error: "Invalid movie ID" });
     }
+
+    const showtimes = await Showtime.find({ movieID: movieId })
+      .populate("theaterID", "name city") // remove or change as you wish
+      .sort({ startTime: 1 });
+
+    if (showtimes.length === 0) {
+      return res.status(404).json({ error: "No showtimes found for this movie" });
+    }
+
+    res.status(200).json(showtimes);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Error retrieving showtimes" });
+  }
 };
+
 
 export const updateShowtime = async (req, res) => {
   try {

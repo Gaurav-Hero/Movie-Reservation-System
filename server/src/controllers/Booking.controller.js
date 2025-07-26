@@ -16,6 +16,8 @@ export const createBooking = async (req, res) => {
     const booking = await Booking.create({
       showtimeId,
       userId,
+      movieId: showtime.movieID,     // ✅ pulled from showtime
+      theaterId: showtime.theaterID, // ✅ pulled from showtime
       seats,
       totalAmount
     });
@@ -26,6 +28,7 @@ export const createBooking = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 
 export const getUserBookings = async (req, res) => {
