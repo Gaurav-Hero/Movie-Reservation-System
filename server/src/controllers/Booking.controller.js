@@ -5,6 +5,7 @@ import Showtime from "../models/showtime.model.js"
 
 export const createBooking = async (req, res) => {
   try {
+    console.log("Create Booking Controller Envoked !")
     const userId = req.user.id;
     const { showtimeId, seats } = req.body;
 
@@ -21,7 +22,7 @@ export const createBooking = async (req, res) => {
       seats,
       totalAmount
     });
-
+    console.log("Create Booking done !")
     res.status(201).json({ message: "Booking successful", booking });
   } catch (error) {
     console.error("Booking error:", error);

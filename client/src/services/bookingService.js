@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:4000/api/bookings"; // adjust if needed
 
-export const createBookingService = async () => {
+export const createBookingService = async (showtimeId, selectedSeats, pricePerSeat) => {
   const res = await axios.post(`${API_URL}`, {
         showtimeId,
         seats: selectedSeats.map(seat => ({
@@ -10,5 +10,5 @@ export const createBookingService = async () => {
           price: pricePerSeat
         }))
       });
-  return res.data;
+  return res;
 };
